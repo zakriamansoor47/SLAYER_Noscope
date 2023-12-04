@@ -44,6 +44,6 @@ css_noscope - For RCON (Console) to Enable/Disable Scope for all Players (Scope 
   "ShowYouCantScopeMsg": true,          // Show Message When player try to Scope (0 = No, 1 = Yes)
   "UseRemovingWeaponMethod": false,     // Method of Noscope (true = remove and give a new weapon when the player tries to Scope | false = by switching the player's weapon to a knife when                                            // the player tries to Scope.)
   "AdminFlagtoForceNS": "@css/root",    // Admin flag Which can Enable/Disable Scope of All Players by CMD (!noscope)
-  "ConfigVersion": 1
+  "ConfigVersion": 1                    // Don't Change this
 }
 ```
