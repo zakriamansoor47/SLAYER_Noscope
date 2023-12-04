@@ -19,7 +19,11 @@ This is my first plugin for [CounterStrikeSharp](https://docs.cssharp.dev/). Thi
 
 **4.** Show Text in Chat when Players/Admin Turn On/Off Scope
 
-**5.** There are **2 Methods** to disable scope. **First,** remove and give a new weapon when the player tries to Scope. **Second,** by switching the player's weapon to a knife when the player tries to Scope. You can change the Noscope Method from the **Configuration** file. 
+**5.** There are **2 Methods** to disable scope. 
+
+  `-` First, remove and give a new weapon when the player tries to Scope. 
+    
+  `-` Second, by switching the player's weapon to a knife when the player tries to Scope. You can change the Noscope Method from the **Configuration** file. 
 
 ## Requirements:
 CounterStrikeSharp v80+
