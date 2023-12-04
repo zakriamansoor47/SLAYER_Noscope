@@ -5,7 +5,9 @@ This is my first plugin for [CounterStrikeSharp](https://docs.cssharp.dev/). Thi
 
 ## Features:
 **1.** Upload files to your server.
+
 **2.** Edit **configs/plugins/SLAYER_Noscope/SLAYER_Noscope.json** if you want to change the settings.
+
 **3.** Change the Map **or** Restart the Server **or** Load the Plugin.
 
 ## Installation:
