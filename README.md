@@ -12,9 +12,13 @@ This is my first plugin for [CounterStrikeSharp](https://docs.cssharp.dev/). Thi
 
 ## Installation:
 **1.** Allow Players to Noscope by the player command `!ns`
+
 **2.** Allow Admin (with specific Flag) to Force Players to Noscope.
+
 **3.** Players Can't use the command to Enable/Disable Scope when Admin forces them to Noscope.
+
 **4.** Show Text in Chat when Players/Admin Turn On/Off Scope
+
 **5.** There are **2 Methods** to disable scope. **First,** remove and give a new weapon when the player tries to Scope. **Second,** by switching the player's weapon to a knife when the player tries to Scope. You can change the Noscope Method from the **Configuration** file. 
 
 ## Requirements:
