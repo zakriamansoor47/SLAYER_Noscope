@@ -21,9 +21,6 @@ This is my first plugin for [CounterStrikeSharp](https://docs.cssharp.dev/). Thi
 
 **5.** Support Bullet Tracers
 
-## Requirements:
-CounterStrikeSharp v80+
-
 ## Commands:
 ```
 !ns - For Everyone to Enable/Disable Scope on themselves (Scope will always be disabled if "AlwaysDisableScope" is true in the config file)
