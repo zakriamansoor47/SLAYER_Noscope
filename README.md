@@ -19,11 +19,7 @@ This is my first plugin for [CounterStrikeSharp](https://docs.cssharp.dev/). Thi
 
 **4.** Show Text in Chat when Players/Admin Turn On/Off Scope
 
-**5.** There are **2 Methods** to disable scope. 
-
-  `-` First, remove and give a new weapon when the player tries to Scope. 
-    
-  `-` Second, by switching the player's weapon to a knife when the player tries to Scope. You can change the Noscope Method from the **Configuration** file. 
+**5.** Support Bullet Tracers
 
 ## Requirements:
 CounterStrikeSharp v80+
@@ -42,7 +38,7 @@ css_noscope - For RCON (Console) to Enable/Disable Scope for all Players (Scope 
   "AlwaysDisableScope": false,          // Always Disable Scope in the Server. (false = No, true = Yes)
   "PlayerCanUseNsCmd": true,            // Players Can use Noscope Command (!ns) to Enable/Disable Scope on themselves (0 = No, 1 = Yes)
   "ShowYouCantScopeMsg": true,          // Show Message When player try to Scope (0 = No, 1 = Yes)
-  "UseRemovingWeaponMethod": false,     // Method of Noscope (true = remove and give a new weapon when the player tries to Scope | false = by switching the player's weapon to a knife when                                            // the player tries to Scope.)
+  "BulletTracers": true,                // Enable/Disable Bullet Tracers. (false = Disabled, true = Enabled)
   "AdminFlagtoForceNS": "@css/root",    // Admin flag Which can Enable/Disable Scope of All Players by CMD (!noscope)
   "ConfigVersion": 1                    // Don't Change this
 }
