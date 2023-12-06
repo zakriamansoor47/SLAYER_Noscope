@@ -3,14 +3,14 @@
 ## Description:
 This is my first plugin for [CounterStrikeSharp](https://docs.cssharp.dev/). This plugin disables Scope of Scope Weapons like AWP, scout, etc.
 
-## Features:
+## Installation:
 **1.** Upload files to your server.
 
 **2.** Edit **configs/plugins/SLAYER_Noscope/SLAYER_Noscope.json** if you want to change the settings.
 
 **3.** Change the Map **or** Restart the Server **or** Load the Plugin.
 
-## Installation:
+## Features:
 **1.** Allow Players to Noscope by the player command `!ns`
 
 **2.** Allow Admin (with specific Flag) to Force Players to Noscope.
