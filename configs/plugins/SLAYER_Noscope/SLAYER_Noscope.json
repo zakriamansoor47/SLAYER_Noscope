@@ -4,7 +4,7 @@
   "AlwaysDisableScope": true,
   "PlayerCanUseNsCmd": true,
   "ShowYouCantScopeMsg": true,
-  "UseRemovingWeaponMethod": false,
+  "BulletTracers": true,
   "AdminFlagtoForceNS": "@css/root",
   "ConfigVersion": 1
 }
