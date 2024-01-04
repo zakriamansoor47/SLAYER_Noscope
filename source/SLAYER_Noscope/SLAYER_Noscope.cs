@@ -135,27 +135,37 @@ public class SLAYER_Noscope : BasePlugin, IPluginConfig<ConfigSpecials>
 
         if(g_Noscope[player.Slot] || adminNoscope || Config.AlwaysDisableScope)
         {
-            var ActiveWeaponName = player.PlayerPawn.Value.WeaponServices!.ActiveWeapon.Value.DesignerName;
-            if(ActiveWeaponName.Contains("weapon_ssg08") || ActiveWeaponName.Contains("weapon_awp")
-            || ActiveWeaponName.Contains("weapon_scar20") || ActiveWeaponName.Contains("weapon_g3sg1"))
+            try
             {
-                player.PlayerPawn.Value.WeaponServices!.ActiveWeapon.Value.NextSecondaryAttackTick = Server.TickCount + 500;
-                var buttons = player.Buttons;
-                if(!g_Zoom[player.Slot] && (buttons & PlayerButtons.Attack2) != 0)
+                if(player.PlayerPawn.Value.WeaponServices!.MyWeapons.Count != 0)
                 {
-                    g_Zoom[player.Slot] = true;
-                    if(Config.ShowYouCantScopeMsg)
+                    var ActiveWeaponName = player.PlayerPawn.Value.WeaponServices!.ActiveWeapon.Value.DesignerName;
+                    if(ActiveWeaponName.Contains("weapon_ssg08") || ActiveWeaponName.Contains("weapon_awp")
+                    || ActiveWeaponName.Contains("weapon_scar20") || ActiveWeaponName.Contains("weapon_g3sg1"))
                     {
-                        Server.NextFrame(() => {
-                            player.PrintToChat($"{ChatColors.Lime}[{ChatColors.Darkred}No{ChatColors.Green}Scope{ChatColors.Lime}] {ChatColors.LightPurple}You {ChatColors.Darkred}can't {ChatColors.Lime}Scope!");
-                        });
+                        player.PlayerPawn.Value.WeaponServices!.ActiveWeapon.Value.NextSecondaryAttackTick = Server.TickCount + 500;
+                        var buttons = player.Buttons;
+                        if(!g_Zoom[player.Slot] && (buttons & PlayerButtons.Attack2) != 0)
+                        {
+                            g_Zoom[player.Slot] = true;
+                            if(Config.ShowYouCantScopeMsg)
+                            {
+                                Server.NextFrame(() => {
+                                    player.PrintToChat($"{ChatColors.Lime}[{ChatColors.Darkred}No{ChatColors.Green}Scope{ChatColors.Lime}] {ChatColors.LightPurple}You {ChatColors.Darkred}can't {ChatColors.Lime}Scope!");
+                                });
+                            }
+                        }
+                        else if(g_Zoom[player.Slot] && (buttons & PlayerButtons.Attack2) == 0)
+                        {
+                            g_Zoom[player.Slot] = false;
+                        }
+                        
                     }
                 }
-                else if(g_Zoom[player.Slot] && (buttons & PlayerButtons.Attack2) == 0)
-                {
-                    g_Zoom[player.Slot] = false;
-                }
-                
+            }
+            catch(Exception ex)
+            {
+                Logger.LogWarning($"[SLAYER Noscope] Warning: {ex}");
             }
         }
     }
@@ -167,23 +177,34 @@ public class SLAYER_Noscope : BasePlugin, IPluginConfig<ConfigSpecials>
             return HookResult.Continue;
         if(g_Noscope[player.Slot] || adminNoscope || Config.AlwaysDisableScope)
         {
-            var ActiveWeaponName = player.PlayerPawn.Value.WeaponServices!.ActiveWeapon.Value.DesignerName;
-            if(ActiveWeaponName.Contains("weapon_ssg08") || ActiveWeaponName.Contains("weapon_awp")
-            || ActiveWeaponName.Contains("weapon_scar20") || ActiveWeaponName.Contains("weapon_g3sg1"))
+            if(player.PlayerPawn.Value.WeaponServices!.MyWeapons.Count != 0)
             {
-                
-                Vector PlayerPosition = player.Pawn.Value.AbsOrigin;
-                Vector BulletOrigin = new Vector(PlayerPosition.X, PlayerPosition.Y, PlayerPosition.Z+64);//bulletOrigin.X += 50.0f;
-                float[] bulletDestination = new float[3];
-                bulletDestination[0] = @event.X;
-                bulletDestination[1] = @event.Y;
-                bulletDestination[2] = @event.Z;
-                if(player.TeamNum == 3)DrawLaserBetween(player, BulletOrigin, new Vector(bulletDestination[0], bulletDestination[1], bulletDestination[2]), Color.Blue, 1.0f, 2.0f);
-                else if(player.TeamNum == 2)DrawLaserBetween(player, BulletOrigin, new Vector(bulletDestination[0], bulletDestination[1], bulletDestination[2]), Color.Red, 1.0f, 2.0f);
+                 try
+                {
+                    var ActiveWeaponName = player.PlayerPawn.Value.WeaponServices!.ActiveWeapon.Value.DesignerName;
+                    if(ActiveWeaponName.Contains("weapon_ssg08") || ActiveWeaponName.Contains("weapon_awp")
+                    || ActiveWeaponName.Contains("weapon_scar20") || ActiveWeaponName.Contains("weapon_g3sg1"))
+                    {
+                        
+                        Vector PlayerPosition = player.Pawn.Value.AbsOrigin;
+                        Vector BulletOrigin = new Vector(PlayerPosition.X, PlayerPosition.Y, PlayerPosition.Z+64);//bulletOrigin.X += 50.0f;
+                        float[] bulletDestination = new float[3];
+                        bulletDestination[0] = @event.X;
+                        bulletDestination[1] = @event.Y;
+                        bulletDestination[2] = @event.Z;
+                        if(player.TeamNum == 3)DrawLaserBetween(player, BulletOrigin, new Vector(bulletDestination[0], bulletDestination[1], bulletDestination[2]), Color.Blue, 1.0f, 2.0f);
+                        else if(player.TeamNum == 2)DrawLaserBetween(player, BulletOrigin, new Vector(bulletDestination[0], bulletDestination[1], bulletDestination[2]), Color.Red, 1.0f, 2.0f);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    Logger.LogWarning($"[SLAYER Noscope] Warning: {ex}");
+                }
             }
         }
         return HookResult.Continue;
     }
+    
     
     public void DrawLaserBetween(CCSPlayerController player, Vector startPos, Vector endPos, Color color, float life, float width)
     {
