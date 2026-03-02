@@ -1,0 +1,16 @@
+{
+    "Chat.Prefix": "{Gold}[{DarkRed}★ {Green}NoScope {DarkRed}★{Gold}]",
+    "RCON.CannotUse": "[NoScope] Cannot use command from RCON",
+    "Plugin.Disabled": "{DarkRed}Plugin is Disabled!",
+    "Command.Disabled": "{DarkRed}Command is Disabled!",
+    "Command.Unavailable": "{DarkRed}Command is Unavailable Right Now!",
+    "Player.NoScope.Enabled": "{Purple}Now {LightPurple}you {DarkRed}can't {Lime}Scope!",
+    "Player.NoScope.Disabled": "{Purple}Now {LightPurple}you {DarkRed}can {Lime}Scope!",
+    "Player.NoScope.Enabled.All": "{Green}{0} {Purple}now {DarkRed}can't {Lime}Scope!",
+    "Player.NoScope.Disabled.All": "{Green}{0} {Purple}now {DarkRed}can {Lime}Scope!",
+    "Admin.NoPermission": "{DarkRed}You don't have permission to use this command!",
+    "Admin.NoScope.Disabled": "{Purple}Admin {DarkRed}Disabled {Lime}Scope!",
+    "Admin.NoScope.Enabled": "{Purple}Admin {DarkRed}Enabled {Lime}Scope!",
+    "Player.CantScope": "{LightPurple}You {DarkRed}can't {Lime}Scope!",
+    "RCON.Plugin.Disabled": "[NoScope] Plugin is Disabled!"
+}
